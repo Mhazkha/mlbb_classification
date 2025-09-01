@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-model = joblib.load("model_mlbb.joblib")
+model = joblib.load("model_MLBB.joblib")
 
 st.title("MLBB Classification")
 kill = st.slider("jumlah kill", 0,20)
@@ -14,4 +14,5 @@ if st.button("predict"):
 	data_baru = pd.DataFrame([[kill,assist,death,turret]],
 			columns=["kill","assist","death","turret"])
 	st.success(f"hasi prediksi : {model.predict(data_baru)[0]}")
+
 	st.balloons()
